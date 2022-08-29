@@ -18,10 +18,6 @@ apps:
 
 database:
   mongo:
-    storageClassName: mongo-storage
-    storageName: mongo-persistent-storage
-    serviceName: mongo
-    replicaSet: rs0
     replicas: 2
     port: 27017
 

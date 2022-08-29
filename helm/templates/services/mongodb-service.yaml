@@ -9,7 +9,7 @@ metadata:
   name: {{ .Values.database.mongo.serviceName }}
 spec:
   ports:
-    - port: 27017
-      targetPort: 27017
+    - port: {{ .Values.database.mongo.port }}
+      targetPort: {{ .Values.database.mongo.port }}
   selector:
     app: todo-mongodb
