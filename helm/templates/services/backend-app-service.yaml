@@ -16,4 +16,4 @@ spec:
   selector:
     app: {{ template "nodeapp.name" . }}
     release: {{ .Release.Name }}
-  type: type: {{ .Values.service.nodeapp.type }}
+  type: {{ .Values.service.nodeapp.type }}

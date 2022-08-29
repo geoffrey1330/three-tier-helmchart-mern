@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb
@@ -6,6 +6,10 @@ metadata:
     app: todo-mongodb
 spec:
   replicas: {{ .Values.database.mongo.replicas }}
+  selector:
+    matchLabels:
+      app: todo-mongodb
+  serviceName: {{ .Values.database.mongo.serviceName }}
   template:
     metadata:
       name: mongodb

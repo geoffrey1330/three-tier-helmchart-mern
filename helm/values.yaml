@@ -6,21 +6,25 @@ apps:
   nodeapp:
     name: todo-backend-app-deploy
     repository: geoffrey13/todo-backend
-    tag: "1.0.0"
+    tag: "latest" #"1.0.0"
     replicaCount: 2
     configmap: backend-side-configs
   reactapp:
     name: todo-frontend-app-deploy
     repository: geoffrey13/todo-frontend
-    tag: "1.0.0"
+    tag: "latest" #"1.0.0"
     replicaCount: 2
   pullPolicy: Always
 
 database:
   mongo:
+    serviceName: mongo
     replicas: 2
     port: 27017
-
+configmap:
+  ServerPort: 5000
+  frontendUrl: http://todo-frontend-service
+  #MONGODB_URL: mongodb://todo-mongo-service:27017/todo-k8s
 service:
   reactapp:
     name: todo-frontend-service
@@ -35,11 +39,8 @@ service:
     externalPort: 5000
     internalPort: 5000
 
-ingress:
-  reactapp:
-    name: react-ingress
-
 resources:
   staticIp: reactapp
+
 
 tolerations: []
