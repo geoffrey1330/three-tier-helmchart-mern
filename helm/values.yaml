@@ -24,7 +24,7 @@ database:
 configmap:
   ServerPort: 5000
   frontendUrl: http://todo-frontend-service
-  #MONGODB_URL: mongodb://todo-mongo-service:27017/todo-k8s
+  MONGODB_URL: mongodb://todo-mongo-service:27017/todo-k8s
 service:
   reactapp:
     name: todo-frontend-service
