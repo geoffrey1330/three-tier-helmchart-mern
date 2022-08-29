@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-frontend-app-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-frontend-app
+  template:
+    metadata:
+      labels:
+        app: todo-frontend-app
+    spec:
+      containers:
+      - image: geoffrey13/todo-frontend:latest
+        name: todo-frontend
+        imagePullPolicy: Always

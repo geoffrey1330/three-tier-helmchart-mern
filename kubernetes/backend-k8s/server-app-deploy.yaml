@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-backend-app-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-backend-app
+  template:
+    metadata:
+      labels:
+        app: todo-backend-app
+    spec:
+      containers:
+      - image: geoffrey13/todo-backend:latest
+        name: todo-backend
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: backend-side-configs
+        - secretRef:
+            name: backend-side-secrets
