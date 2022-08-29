@@ -1,0 +1,49 @@
+# for discovering services and pods
+serviceAccount: discovery-sa
+namespace: default
+
+apps:
+  nodeapp:
+    name: todo-backend-app-deploy
+    repository: geoffrey13/todo-backend
+    tag: "1.0.0"
+    replicaCount: 2
+    configmap: backend-side-configs
+  reactapp:
+    name: todo-frontend-app-deploy
+    repository: geoffrey13/todo-frontend
+    tag: "1.0.0"
+    replicaCount: 2
+  pullPolicy: Always
+
+database:
+  mongo:
+    storageClassName: mongo-storage
+    storageName: mongo-persistent-storage
+    serviceName: mongo
+    replicaSet: rs0
+    replicas: 2
+    port: 27017
+
+service:
+  reactapp:
+    name: todo-frontend-service
+    type: NodePort
+    protocol: TCP
+    externalPort: 80
+    internalPort: 80
+  nodeapp:
+    name: todo-backend-service
+    type: NodePort
+    protocol: TCP
+    externalPort: 5000
+    internalPort: 5000
+
+ingress:
+  reactapp:
+    name: react-ingress
+
+resources:
+  staticIp: reactapp
+
+tolerations: []

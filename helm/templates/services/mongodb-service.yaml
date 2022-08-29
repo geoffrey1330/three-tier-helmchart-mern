@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: todo-mongodb
+    chart: {{ template "nodeapp.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  name: {{ .Values.database.mongo.serviceName }}
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: todo-mongodb
