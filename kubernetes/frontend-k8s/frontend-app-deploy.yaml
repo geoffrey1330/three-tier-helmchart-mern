@@ -16,3 +16,4 @@ spec:
       - image: geoffrey13/todo-frontend:latest
         name: todo-frontend
         imagePullPolicy: Always
+        

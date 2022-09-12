@@ -9,3 +9,4 @@ spec:
   selector:
     app: todo-backend-app
   type: NodePort
+  
