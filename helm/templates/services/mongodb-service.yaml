@@ -13,3 +13,4 @@ spec:
       targetPort: {{ .Values.database.mongo.port }}
   selector:
     app: todo-mongodb
+    

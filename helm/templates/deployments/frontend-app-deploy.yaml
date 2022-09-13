@@ -25,3 +25,4 @@ spec:
         ports:
           - containerPort: {{ .Values.service.reactapp.internalPort }}
         imagePullPolicy: {{ .Values.apps.pullPolicy }}
+        

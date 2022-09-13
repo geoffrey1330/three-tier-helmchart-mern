@@ -17,3 +17,4 @@ spec:
     app: {{ template "nodeapp.name" . }}
     release: {{ .Release.Name }}
   type: {{ .Values.service.nodeapp.type }}
+  

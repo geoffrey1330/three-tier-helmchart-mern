@@ -17,3 +17,4 @@ spec:
     protocol: {{ .Values.service.reactapp.protocol }}
     name: {{ .Values.service.reactapp.name }}
   type: {{ .Values.service.reactapp.type }}
+  

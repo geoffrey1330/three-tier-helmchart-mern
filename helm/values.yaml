@@ -42,5 +42,4 @@ service:
 resources:
   staticIp: reactapp
 
-
 tolerations: []
