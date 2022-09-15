@@ -28,4 +28,3 @@ const ToDosSchema = new mongoose.Schema({
 const ToDos = mongoose.model('ToDos', ToDosSchema)
 
 module.exports = ToDos
-
